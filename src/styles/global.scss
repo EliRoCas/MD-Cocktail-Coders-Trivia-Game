@@ -1,61 +1,24 @@
+@import "./color.scss";
+
 #root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
+body {
+  margin: 0px;
+  background-color: #000;
+  font-family: "Odibee Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: $color-accent-500;
+}
 
-/** Primary colors */
-$color-primary-50: #ebfffe;
-$color-primary-100: #ccfffe;
-$color-primary-200: #9ffeff;
-$color-primary-300: #5cf9ff;
-$color-primary-400: #18ecfd; // Primary color
-$color-primary-500: #00cee3;
-$color-primary-600: #00a4be;
-$color-primary-700: #04829a;
-$color-primary-800: #0e687c;
-$color-primary-900: #105669;
-$color-primary-950: #043948;
-
-/** Accent colors */
-$color-accent-100: #fee5f8;
-$color-accent-200: #ffcbf4;
-$color-accent-300: #ffa0e9;
-$color-accent-400: #ff65d8;
-$color-accent-500: #fc2cbf; // Primary accent
-$color-accent-600: #ed15a3;
-$color-accent-700: #ce0884;
-$color-accent-800: #aa0a6c;
-$color-accent-900: #8e0d5c;
-$color-accent-950: #570036;
-
-/** Contrast colors */
-$color-contrast-50: #fff5ed;
-$color-contrast-100: #ffe8d5;
-$color-contrast-200: #ffcda9;
-$color-contrast-300: #ffaa72;
-$color-contrast-400: #fd732e; // Primary contras
-$color-contrast-500: #fc5813;
-$color-contrast-600: #ec3d0a;
-$color-contrast-700: #c42a0a;
-$color-contrast-800: #9c2310;
-$color-contrast-900: #7d1f11;
-$color-contrast-950: #440d06;
-
-/** Danger colors */
-$color-danger-a0: #b41c2b;
-$color-danger-a10: #851d22;
-$color-danger-a20: #581919;
-$color-danger-a30: #2f1310;
-
-/** Success colors */
-$color-success-a0: #009f42;
-$color-success-a10: #167533;
-$color-success-a20: #184d25;
-$color-success-a30: #132916;
-
-/** Examples */
-// .btn-primary {
-//   color: $color-primary-a50;
-//   background-color: $color-primary-a0;
-// }
+h1,
+h2,
+h3 {
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-size: 1.5em;
+  font-style: normal;
+}

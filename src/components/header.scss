@@ -1,15 +1,42 @@
+@import "../styles/color.scss";
+
 .headerContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr 2fr;
-  grid-template-rows: 1fr;
-  justify-content: space-between;
+  display: flex;
+  justify-content: space-evenly;
   align-items: center;
-  background-color: #18ECFD;
+  text-align: center;
+
+  background: linear-gradient(
+    to right,
+    $color-primary-400,
+    $color-accent-500,
+    $color-contrast-400
+  );
+  padding: 5px;
+  color: #000;
+  text-align: center;
+
+  .logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 45%;
+    box-shadow: 4px 15px 30px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@media (max-width: 768px) {
+  .headerContainer {
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+  }
 
   .logo {
     width: 50px;
     height: 50px;
-    border-radius: 50%;
+  }
+
+  .pageName {
+    font-size: 1.2em;
   }
 }
-

@@ -1,63 +1,104 @@
+@import "../../styles/color.scss";
+
 .navContainer {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-direction: row;
 }
 
-.navActivator {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  padding: 0.5em; /* Reduced padding */
-  cursor: pointer;
-  transition: background 0.3s ease;
-
-  &:hover {
-    background: rgb(163, 171, 194);
-  }
-}
-
-nav.nav {
-  background: rgb(138, 140, 145);
-  border-radius: 0 5em 5em 0;
-  padding: 0.5em;
-  clip-path: ellipse(50% 50% at -50% 50%);
-  transition: clip-path 0.5s ease-in-out, transform 0.5s ease-in-out;
-  display: inline-flex;
-  align-items: center;
-
-  &.open {
-    clip-path: ellipse(100% 100% at 50% 50%);
-  }
-}
-
-.nav ul {
-  list-style: none;
+.navDesktop {
   display: flex;
-  margin: 0;
-  padding: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
 
-  li.navLink {
+  .navDesktopList {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.25em; /* Reduced padding */
-    margin: 0 0.25em; /* Reduced margin */
-    border-radius: 50%;
-    transition: background 0.3s ease;
+    flex-direction: row;
+    list-style: none;
+    gap: 1em;
+    margin: 0;
+    padding: 0 2rem;
+    border: 2px solid $color-accent-900;
+    border-radius: 2rem;
+    font-size: 1.3rem;
+  }
+  .navDesktopImg {
+    width: 50px;
+    height: 50px;
+    color: #000;
+  }
+
+  .navLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 
     &:hover {
-      background: rgb(168, 179, 202);
+      transform: translateY(-5px);
+      .navDesktopImg {
+        color: $color-primary-900;
+      }
+      .navDesktopText {
+        color: $color-primary-900;
+      }
+    }
+
+    .navDesktopImg {
+      width: 50px;
+      height: 50px;
+      color: #000;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .navDesktopText {
+      color: #000;
+      transition: color 0.3s ease-in-out;
     }
   }
 }
 
-.navImg {
-  width: 50px;
-  height: 50px;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+@media (max-width: 768px) {
+  .navContainer {
+    flex-direction: column;
+  }
+  .navDesktop {
+    .navDesktopList {
+      display: grid;
+      height: auto;
+      grid-template-rows: 1fr;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      padding: 0 2rem;
+      border: solid 1px $color-accent-900;
+      border-top-left-radius: 2rem;
+      border-top-right-radius: 2rem;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
 
-  &.open {
-    opacity: 1;
-    transform: translateY(0);
+      .navLink {
+        .navDesktopText {
+          transition: color 0.5s ease-in-out;
+          color: $color-primary-400;
+        }
+        .navDesktopImg {
+          width: 40px;
+          height: 40px;
+          transition: color 0.5s ease-in-out;
+          color: $color-primary-400;
+        }
+
+        .navDesktopText {
+          transition: color 0.5s ease-in-out;
+          color: $color-accent-400;
+        }
+      }
+    }
   }
 }

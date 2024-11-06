@@ -25,32 +25,32 @@ const cocktailSlice = createSlice({
   initialState: {
     cocktails: {},
     cocktailDetails: {},
-    loading: false,
+    loading: "idle",
     error: null,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchCocktailsByCategory.pending, (state) => {
-        state.loading = true;
+        state.loading = "loading";
       })
       .addCase(fetchCocktailsByCategory.fulfilled, (state, action) => {
-        state.loading = false;
+        state.loading = "succeeded";
         state.cocktails[action.payload.category] = action.payload.drinks;
       })
       .addCase(fetchCocktailsByCategory.rejected, (state, action) => {
-        state.loading = false;
+        state.loading = "failed";
         state.error = action.error.message;
       })
       .addCase(fetchCocktailDetails.pending, (state) => {
-        state.loading = true;
+        state.loading = "loading";
       })
       .addCase(fetchCocktailDetails.fulfilled, (state, action) => {
-        state.loading = false;
+        state.loading = "succeeded";
         state.cocktailDetails = action.payload;
       })
       .addCase(fetchCocktailDetails.rejected, (state, action) => {
-        state.loading = false;
+        state.loading = "failed";
         state.error = action.error.message;
       });
   },

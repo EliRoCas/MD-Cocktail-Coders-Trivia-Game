@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import "./notFound.scss"
-import drunkOld from "../assets/menu/DrunkOwl.jpg"
+import drunkOwl from "../assets/drunkOwl.jpg"
 
 const NotFound = () => {
   return (
@@ -11,7 +11,7 @@ const NotFound = () => {
         <p>Tal vez un par de tragos más y habrías encontrado el enlace correcto. Vuelve al <Link to="/" className="home-link">inicio</Link> y sigue disfrutando. ¡Salud!🥂</p>
       </div>
       <div className="img-notfound">
-        <img src={drunkOld} alt="drunk old" />
+        <img src={drunkOwl} alt="drunk old" />
     </div>
     </section>
 

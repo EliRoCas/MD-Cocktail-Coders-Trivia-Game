@@ -1,8 +1,4 @@
-@import "../styles/global.scss";
-
-body {
-    background-color: rgb(21, 21, 21);
-}
+@import "../styles/color.scss";
 
 .notfound-container {
     display: flex;
@@ -36,11 +32,11 @@ body {
             text-align: center;
 
             .home-link {
-                color: $color-accent-800;
+                color: $color-accent-500;
                 text-decoration: underline;
 
                 &:hover {
-                    color: $color-success-a0;
+                    color: $color-primary-400;
                 }
             }
         }

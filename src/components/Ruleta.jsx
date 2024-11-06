@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './ruleta.css';
 
 const shots = ["1", "2", "volver a girar", "reto", "3", "4", "salvarte"];
+const shots2 = ["1","Todos toman","elige a uno","llamada a tu ex","ups 5","selfichiste","ups 3"]
+
 
 function Ruleta() {
     const [selectedShot, setSelectedShot] = useState(null);

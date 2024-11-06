@@ -1,4 +1,4 @@
-// src/styles/drunkpedia.scss
+@import "../styles/global.scss";
 
 .drunkpedia {
   padding: 20px;
@@ -21,8 +21,7 @@
   }
   
   .cocktail-item {
-    background: #fff;
-    border: 1px solid #ccc;
+    background: $color-accent-700;
     border-radius: 10px;
     overflow: hidden;
     width: 200px;

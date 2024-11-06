@@ -1,28 +1,47 @@
-import React from "react";
+import React, { useState } from 'react';
+import './ruleta.css';
 
+const shots = ["1", "2", "volver a girar", "reto", "3", "4", "salvarte"];
 
-function App() {
-    const valores=[
-        {color:"azul",alto:77},
-        {color:"olive",alto:177},
-        {color:"orange",alto:101}
-    ]
-    const[altura,setAltura]=useState(109);
-    const aumentar =()=>{
-        (altura>=225)
-        ? setAltura(10)
-        :setAltura(altura+25)
-    }
-    <>
-        <div className="container  ">
-           
-            <div  className=" barra azul animar"
-                style={{'--altura': `${altura}px `
-            }}
-            onClick={aumentar}
-           ></div>
-          
+function Ruleta() {
+    const [selectedShot, setSelectedShot] = useState(null);
+    const [isSpinning, setIsSpinning] = useState(false);
+    const [rotation, setRotation] = useState(0);
+
+    const spinWheel = () => {
+        setIsSpinning(true);
+        const randomRotation = Math.floor(Math.random() * 360) + 1800;
+        setRotation(rotation + randomRotation);
+
+        setTimeout(() => {
+            const selectedSegment = Math.floor(((rotation + randomRotation) % 360) / (360 / shots.length));
+            setSelectedShot(shots[selectedSegment]);
+            setIsSpinning(false);
+        }, 3000);
+    };
+
+    return (
+        <div className="ruleta-container">
+            <div
+                className={`ruleta ${isSpinning ? 'spinning' : ''}`}
+                style={{ transform: `rotate(${rotation}deg)` }}
+            >
+                {shots.map((shot, index) => (
+                    <div
+                        key={index}
+                        className="ruleta-segment"
+                        data-label={shot} // Usamos data-label para mostrar el texto en CSS
+                        style={{ transform: `rotate(${index * (360 / shots.length)}deg)` }}
+                    ></div>
+                ))}
+            </div>
+            <button onClick={spinWheel} disabled={isSpinning} className="spin-button">
+                {isSpinning ? "Girando..." : "Girar"}
+            </button>
+            {selectedShot && <div className="result">¡Te toca {selectedShot}!</div>}
         </div>
-    </>
-
+    );
 }
+
+export default Ruleta;
+

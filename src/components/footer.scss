@@ -1,0 +1,24 @@
+@import "../styles/color.scss";
+
+.footerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+
+  // border-top: 2px solid $color-accent-500;
+
+  .title {
+    color: $color-primary-400;
+  }
+  .groupName {
+    color: $color-contrast-400;
+  }
+}
+
+@media (max-width: 768px) {
+  .footerContainer {
+    flex-direction: row;
+  }
+}

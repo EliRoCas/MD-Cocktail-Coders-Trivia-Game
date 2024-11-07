@@ -14,14 +14,14 @@
 //       font-size: 16px;
 //     }
 //   }
-  
+
 //   .cocktails-list {
 //     display: flex;
 //     flex-wrap: wrap;
 //     gap: 20px;
 //     justify-content: center;
 //   }
-  
+
 //   .cocktail-item {
 //     background: $color-accent-500;
 //     color: black;
@@ -31,7 +31,6 @@
 //     box-shadow: 0 4px 8px #6b9db69f;
 //     cursor: pointer;
 //     transition: transform 0.2s;
-    
 
 //     &:hover {
 //       opacity: 50%;
@@ -127,6 +126,16 @@
 
     &:hover .read-more-btn {
       display: block; /* Muestra el botón al pasar el ratón */
+    }
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  @media (min-width: 769px) {
+    .desktop-only {
+      display: inline-block;
     }
   }
 }

@@ -16,6 +16,10 @@
   color: #000;
   text-align: center;
 
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
   .logo {
     width: 70px;
     height: 70px;

@@ -54,7 +54,7 @@ const Trivia = () => {
 
   useEffect(() => {
     if (countdown === 0) {
-      navigate("/ruleta");
+      navigate("/ruleta", { state: { isCorrect: false } });
     }
   }, [countdown, navigate]);
 
@@ -147,14 +147,18 @@ const Trivia = () => {
     if (order === "correct") {
       setAlertMessage("You’re a certified cocktail genius!");
       setAlertSeverity("success");
+      setShowAlert(true);
+      setTimeout(() => {
+        navigate("/ruleta", { state: { isCorrect: true } });
+      }, 2000);
     } else {
       setAlertMessage("You need more happy hours!");
       setAlertSeverity("warning");
+      setShowAlert(true);
+      setTimeout(() => {
+        navigate("/ruleta", { state: { isCorrect: false } });
+      }, 2000);
     }
-    setShowAlert(true);
-    setTimeout(() => {
-      navigate("/ruleta");
-    }, 2000);
   };
 
   return (

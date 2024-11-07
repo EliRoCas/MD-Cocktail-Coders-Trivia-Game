@@ -20,7 +20,7 @@ const Footer = () => {
       {!isMobile ? (
         <>
           <p className="title">&copy; MD-KeyCode - 2024.</p>
-          <p className="groupName">Cocktail Coders</p>
+          <p className="groupName">Drunken Developers</p>
           <p className="declaimer">Todos los derechos reservados</p>
         </>
       ) : (

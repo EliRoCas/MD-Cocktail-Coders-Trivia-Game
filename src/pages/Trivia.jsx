@@ -163,7 +163,7 @@ const Trivia = () => {
 
   return (
     <div className="triviaContainer">
-      <h2>Piensa o... ¡Shot!</h2>
+      <h2>1-2-3... ¡Shot!</h2>
       <section className="gameCard">
         <div className="timerImgContainer">
           <div className="timerBarContainer">

@@ -1,4 +1,4 @@
-@import "../styles/color.scss";
+@use "../styles/color.scss" as *;
 
 .headerContainer {
   display: flex;

@@ -51,7 +51,7 @@
 //     }
 //   }
 // }
-@import "../styles/color.scss";
+@use "../styles/color.scss" as *;
 
 .drunkpedia {
   padding: 20px;

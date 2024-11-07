@@ -13,7 +13,7 @@ const CocktailModal = ({ isOpen, toggleModal, cocktail }) => {
           <div className="modal-content">
             <h2>{cocktail.strDrink}</h2>
             <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
-            <h3>Ingredients</h3>
+            <h3 className="modal-title">Ingredients</h3>
             <ul>
               {Object.keys(cocktail)
                 .filter((key) => key.startsWith("strIngredient") && cocktail[key])
@@ -21,7 +21,7 @@ const CocktailModal = ({ isOpen, toggleModal, cocktail }) => {
                   <li key={key}>{cocktail[key]}</li>
                 ))}
             </ul>
-            <h3>Instructions</h3>
+            <h3 className="modal-title">Instructions</h3>
             <p>{cocktail.strInstructions}</p>
             <button className="close-modal" onClick={toggleModal}>
               X

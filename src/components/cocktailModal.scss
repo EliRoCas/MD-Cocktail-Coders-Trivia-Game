@@ -62,8 +62,8 @@ body.active-modal {
 
 @media (max-width: 768px) {
   .modal-content {
-    max-width: 90%;
-    width: 95%;
+    max-width: 85%;
+    width: 90%;
     padding: 10px;
   }
 
@@ -72,6 +72,10 @@ body.active-modal {
   }
 
   .modal-content h2 {
+    font-size: 1.2rem;
+  }
+
+  .modal-title {
     font-size: 1.2rem;
   }
 

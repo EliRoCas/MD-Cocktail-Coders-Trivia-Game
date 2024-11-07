@@ -1,3 +1,4 @@
+
 // Test
 const Score = () => {
   return (
@@ -9,3 +10,4 @@ const Score = () => {
 
 export default Score;
 // End Test
+

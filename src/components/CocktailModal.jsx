@@ -24,7 +24,7 @@ const CocktailModal = ({ isOpen, toggleModal, cocktail }) => {
             <h3>Instructions</h3>
             <p>{cocktail.strInstructions}</p>
             <button className="close-modal" onClick={toggleModal}>
-              Close
+              X
             </button>
           </div>
         </div>

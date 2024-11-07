@@ -2,7 +2,8 @@ body.active-modal {
   overflow-y: hidden;
 }
 
-.modal, .overlay {
+.modal,
+.overlay {
   width: 100vw;
   height: 100vh;
   top: 0;
@@ -14,7 +15,7 @@ body.active-modal {
 }
 
 .overlay {
-  background: rgba(49,49,49,0.8);
+  background: rgba(49, 49, 49, 0.8);
   z-index: 1000; /* Asegura que el overlay esté en el fondo */
 }
 
@@ -43,6 +44,7 @@ body.active-modal {
 
 .modal-content h2 {
   margin-top: 0;
+  margin-right: 50px;
 }
 
 .close-modal {
@@ -56,4 +58,25 @@ body.active-modal {
   font-size: 16px;
   border-radius: 50%;
   z-index: 3000; /* Asegura que el botón de cierre esté en el frente */
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    max-width: 90%;
+    width: 95%;
+    padding: 10px;
+  }
+
+  .modal-content img {
+    max-height: 150px;
+  }
+
+  .modal-content h2 {
+    font-size: 1.2rem;
+  }
+
+  .close-modal {
+    font-size: 14px;
+    padding: 4px 6px;
+  }
 }

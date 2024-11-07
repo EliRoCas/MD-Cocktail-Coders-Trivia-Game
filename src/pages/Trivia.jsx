@@ -54,7 +54,7 @@ const Trivia = () => {
 
   useEffect(() => {
     if (countdown === 0) {
-      navigate("/score");
+      navigate("/ruleta");
     }
   }, [countdown, navigate]);
 
@@ -153,7 +153,7 @@ const Trivia = () => {
     }
     setShowAlert(true);
     setTimeout(() => {
-      navigate("/score");
+      navigate("/ruleta");
     }, 2000);
   };
 

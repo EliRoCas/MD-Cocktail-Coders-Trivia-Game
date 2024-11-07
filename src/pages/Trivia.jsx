@@ -129,7 +129,7 @@ const Trivia = () => {
     }
   }, [cocktailDetails]);
 
-  if (loading || !cocktailDetails) {
+  if (loading != "succeeded" || !cocktailDetails) {
     return <p>Loading...</p>;
   }
 

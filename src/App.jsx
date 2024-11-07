@@ -3,6 +3,9 @@ import MainLayout from "./layout/MainLayout";
 import Home from "./pages/Home";
 import Trivia from "./pages/Trivia";
 import Drunkpedia from "./pages/Drunkpedia";
+import Ruleta from "../src/components/Ruleta";
+
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -12,6 +15,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/trivia" element={<Trivia />} />
           <Route path="/drunkpedia" element={<Drunkpedia />} />
+
+          <Route path="/ruleta" element={<Ruleta />} />
+
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </MainLayout>
     </Router>

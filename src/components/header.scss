@@ -29,7 +29,7 @@
   }
 }
 
-@include mobile {
+.mobile {
   .headerContainer {
     justify-content: space-evenly;
     align-items: center;
@@ -43,5 +43,9 @@
 
   .pageName {
     font-size: 1.2em;
+  }
+
+  .navBar {
+    display: none;
   }
 }

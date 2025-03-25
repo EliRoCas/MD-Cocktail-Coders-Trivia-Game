@@ -52,6 +52,7 @@
 //   }
 // }
 @use "../styles/color.scss" as *;
+@use "../styles/mixins.scss" as *;
 
 .drunkpedia {
   padding: 20px;
@@ -88,7 +89,7 @@
     transition: transform 0.2s, opacity 0.2s;
 
     &:hover {
-      opacity: 0.8; /* Ajusta la opacidad al pasar el ratón */
+      opacity: 0.8;
       transform: scale(1.05);
     }
 
@@ -100,13 +101,13 @@
     }
 
     .additional-info {
-      display: none; /* Oculta la información adicional por defecto */
+      display: none;
       padding: 10px;
       text-align: center;
     }
 
     &:hover .additional-info {
-      display: block; /* Muestra la información adicional al pasar el ratón */
+      display: block;
     }
 
     h2 {
@@ -116,7 +117,7 @@
     }
 
     .read-more-btn {
-      display: none; /* Oculta el botón por defecto */
+      display: none;
       margin: 10px;
       padding: 5px 10px;
       font-size: 14px;
@@ -128,8 +129,34 @@
     }
 
     &:hover .read-more-btn {
-      display: block; /* Muestra el botón al pasar el ratón */
+      display: block;
     }
   }
+}
 
+@include mobile {
+  .drunkpedia {
+    padding: 10px;
+    
+    .category-select {
+      label {
+        font-size: 1.2em;
+      }
+      select {
+        font-size: 14px;
+      }
+    }
+
+    .cocktail-item {
+      width: 150px;
+
+      img {
+        height: 120px;
+      }
+
+      h2 {
+        font-size: 16px;
+      }
+    }
+  }
 }

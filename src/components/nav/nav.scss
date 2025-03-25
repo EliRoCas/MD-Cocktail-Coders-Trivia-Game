@@ -1,4 +1,5 @@
 @use "../../styles/color.scss" as *;
+@use "../../styles/mixins.scss" as *;
 
 .navContainer {
   display: flex;
@@ -64,7 +65,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@include mobile {
   .navContainer {
     flex-direction: column;
   }

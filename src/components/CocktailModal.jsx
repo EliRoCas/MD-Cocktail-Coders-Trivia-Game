@@ -3,7 +3,6 @@ import "./cocktailModal.scss";
 
 const CocktailModal = ({ isOpen, toggleModal, cocktail }) => {
   if (!cocktail) return null;
-  
 
   return (
     <>
@@ -12,11 +11,17 @@ const CocktailModal = ({ isOpen, toggleModal, cocktail }) => {
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
             <h2>{cocktail.strDrink}</h2>
-            <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
+            <img
+              src={cocktail.strDrinkThumb}
+              alt={cocktail.strDrink}
+              loading="lazy"
+            />
             <h3 className="modal-title">Ingredients</h3>
             <ul>
               {Object.keys(cocktail)
-                .filter((key) => key.startsWith("strIngredient") && cocktail[key])
+                .filter(
+                  (key) => key.startsWith("strIngredient") && cocktail[key]
+                )
                 .map((key) => (
                   <li key={key}>{cocktail[key]}</li>
                 ))}
@@ -48,7 +53,6 @@ CocktailModal.propTypes = {
 
 export default CocktailModal;
 
-
 // import { useState } from "react";
 // import "./cocktailModal.scss";
 
@@ -64,11 +68,10 @@ export default CocktailModal;
 //   }else{
 //     document.body.classList.remove("active-modal")
 //   }
-  
 
 //   return (
 //     <>
-    
+
 //     <button
 //       onClick={toggleModal}
 //       className="btn-modal">
@@ -76,7 +79,7 @@ export default CocktailModal;
 //       </button>
 //       {modal&&(
 //       <div className="modal">
-//       <div 
+//       <div
 //         onClick={toggleModal}
 //         className="overlay"></div>
 //       <div className="modal-content">
@@ -84,25 +87,19 @@ export default CocktailModal;
 //       <p>
 //         Lorem ipsum dolor sit amet consectetur adipisicing elit. A illum quae voluptate dicta harum? Unde atque facere aliquam nulla impedit quidem natus, itaque at laudantium architecto voluptatibus vel labore dolor?
 //       </p>
-//       <button 
+//       <button
 //         className="close-modal"
 //         onClick={toggleModal}
 //         >Close</button>
-//       </div>        
+//       </div>
 //     </div>
 //       )}
-      
 
 //     </>
 //   )
 // }
 
 // export default CocktailModal;
-
-
-
-
-
 
 // import PropTypes from 'prop-types';
 // import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";

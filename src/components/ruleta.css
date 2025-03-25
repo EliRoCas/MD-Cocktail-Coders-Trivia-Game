@@ -50,7 +50,7 @@
 .ruleta-segment:nth-child(1) {
   background-color: #18ecfd;
   transform: rotate(0deg);
-  background-image: url("./buho.png"); 
+  background-image: url("../assets/buho.png"); 
   background-size: 80%; 
   background-repeat: no-repeat; 
   background-position: center; 

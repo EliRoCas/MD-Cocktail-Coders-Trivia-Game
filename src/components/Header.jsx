@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <div className="headerContainer">
       <img className="logo" src="./DrunkOwl.jpg" alt="logo" />
-      <h1 className="pageName">Shots Pal' Desmadre</h1>
+      <h1 className="pageName">Shots Pal&apos; Desmadre</h1>
       {!isMobile && <Nav className="navBar" />}
     </div>
   );

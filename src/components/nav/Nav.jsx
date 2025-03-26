@@ -9,24 +9,24 @@ import "./nav.scss";
 const Nav = ({ className }) => {
   return (
     <div className={`navContainer ${className}`}>
-      <nav className="navDesktop">
-        <ul className="navDesktopList">
+      <nav className="nav">
+        <ul className="navList">
           <li>
             <Link to="/" className="navLink">
-              <GiGlassCelebration className="navDesktopImg" />
-              <span className="navDesktopText">Inicio</span>
+              <GiGlassCelebration className="navImg" />
+              <span className="navText">Inicio</span>
             </Link>
           </li>
           <li>
             <Link to="/trivia" className="navLink">
-              <IoGameController className="navDesktopImg" />
-              <span className="navDesktopText">Shots</span>
+              <IoGameController className="navImg" />
+              <span className="navText">Shots</span>
             </Link>
           </li>
           <li>
             <Link to="/drunkpedia" className="navLink">
-              <RiGlassesLine className="navDesktopImg" />
-              <span className="navDesktopText">Drunkpedia</span>
+              <RiGlassesLine className="navImg" />
+              <span className="navText">Drunkpedia</span>
             </Link>
           </li>
         </ul>

@@ -8,13 +8,13 @@
   flex-direction: row;
 }
 
-.navDesktop {
+.nav {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
 
-  .navDesktopList {
+  .navList {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,7 +27,7 @@
     border-radius: 2rem;
     font-size: 1.3rem;
   }
-  .navDesktopImg {
+  .navImg {
     width: 50px;
     height: 50px;
     color: #000;
@@ -43,22 +43,22 @@
 
     &:hover {
       transform: translateY(-5px);
-      .navDesktopImg {
+      .navImg {
         color: $color-primary-900;
       }
-      .navDesktopText {
+      .navText {
         color: $color-primary-900;
       }
     }
 
-    .navDesktopImg {
+    .navImg {
       width: 50px;
       height: 50px;
       color: #000;
       transition: color 0.3s ease-in-out;
     }
 
-    .navDesktopText {
+    .navText {
       color: #000;
       transition: color 0.3s ease-in-out;
     }
@@ -69,8 +69,8 @@
   .navContainer {
     flex-direction: column;
   }
-  .navDesktop {
-    .navDesktopList {
+  .nav {
+    .navList {
       display: grid;
       height: auto;
       grid-template-rows: 1fr;
@@ -84,18 +84,18 @@
       border-bottom-right-radius: 0;
 
       .navLink {
-        .navDesktopText {
+        .navText {
           transition: color 0.5s ease-in-out;
           color: $color-primary-400;
         }
-        .navDesktopImg {
+        .navImg {
           width: 40px;
           height: 40px;
           transition: color 0.5s ease-in-out;
           color: $color-primary-400;
         }
 
-        .navDesktopText {
+        .navText {
           transition: color 0.5s ease-in-out;
           color: $color-accent-400;
         }

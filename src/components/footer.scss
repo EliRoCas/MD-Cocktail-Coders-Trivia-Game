@@ -8,13 +8,19 @@
   gap: 10px;
   text-align: center;
 
-  // border-top: 2px solid $color-accent-500;
-
   .title {
     color: $color-primary-400;
   }
   .groupName {
     color: $color-contrast-400;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    display: flex;
   }
 }
 
@@ -26,5 +32,15 @@
     z-index: 100;
     background-color: #000;
     padding-top: 5px;
+
+    .mobile {
+      display: flex;
+    }
+  
+    .desktop {
+      display: none;
+    }
   }
+
+
 }

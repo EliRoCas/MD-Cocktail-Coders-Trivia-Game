@@ -1,0 +1,181 @@
+@use "../styles/mixins.scss" as *;
+@use "sass:math";
+
+.ruleta-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.ruleta {
+  width: 90vw;
+  height: 90vw;
+  max-width: 500px;
+  max-height: 500px;
+  border-radius: 50%;
+  border: 5px solid #f0f0ea;
+  position: relative;
+  transition: transform 3s ease-out;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(3, 182, 253, 0.5);
+}
+
+.ruleta.spinning {
+  transition: transform 3s ease-out;
+}
+
+.ruleta-segment {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 0;
+  left: 50%;
+  transform-origin: 0% 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  border-right: 2px solid #824d73;
+
+  &::after {
+    content: attr(data-label);
+    writing-mode: vertical-rl;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #000;
+    font-family: "Press Start 2P", cursive;
+    letter-spacing: 1px;
+    position: absolute;
+    top: 39%;
+    left: 5%;
+    transform: translateY(-50%);
+  }
+}
+
+@for $i from 1 through 8 {
+  .seg-#{$i} {
+    transform: rotate(#{($i - 1) * math.div(360deg, 8)});
+    border: solid #000000 2px;
+  }
+}
+
+.seg-1 {
+  background: radial-gradient(circle, rgb(24, 150, 253) 22%, rgb(24, 236, 253) 79%);
+}
+
+.seg-2 {
+  background: radial-gradient(
+    circle,
+    rgba(251, 63, 234, 1) 22%,
+    rgba(252, 88, 70, 1) 79%
+  );
+}
+
+.seg-3 {
+  background: radial-gradient(
+    circle,
+    rgba(243, 63, 251, 1) 0%,
+    rgba(70, 131, 252, 1) 100%
+  );
+}
+
+.seg-4 {
+  background: radial-gradient(
+    circle,
+    rgba(251, 161, 63, 1) 22%,
+    rgba(252, 88, 70, 1) 79%
+  );
+}
+
+.seg-5 {
+  background: radial-gradient(
+    circle,
+    rgba(251, 161, 63, 1) 49%,
+    rgba(252, 247, 70, 1) 78%
+  );
+}
+
+.seg-6 {
+  background: radial-gradient(
+    circle,
+    rgba(63, 251, 231, 1) 0%,
+    rgba(79, 252, 70, 1) 100%
+  );
+}
+
+.seg-7 {
+  background: linear-gradient(
+    to top,
+    rgba(243, 63, 251, 1) 0%,
+    rgb(248, 89, 15) 100%
+  );
+}
+
+
+.pointer {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid #ffcc00;
+  z-index: 10;
+}
+
+.spin-button,
+.next-turn-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+
+  &:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+}
+
+.result {
+  margin-top: 10px;
+  font-size: 1.8rem;
+  color: #fd732e;
+}
+
+.ruletaBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+@include mobile {
+  .ruleta {
+    width: 90vw;
+    height: 90vw;
+  }
+
+  .ruleta-segment::after {
+    font-size: 0.6rem;
+  }
+
+  .spin-button,
+  .next-turn-button {
+    font-size: 1.5rem;
+    padding: 8px 16px;
+  }
+
+  .result {
+    font-size: 1.3rem;
+  }
+
+  .ruletaBtn {
+    flex-direction: row;
+  }
+}

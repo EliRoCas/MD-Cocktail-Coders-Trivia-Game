@@ -25,7 +25,7 @@ const UseTriviaModal = () => {
 
   const toggleModal = () => {
     setModal((prev) => ({ ...prev, open: false }));
-    navigate("/ruleta", { state: { isCorrect: modal.isCorrect } });
+    navigate("/roulette", { state: { isCorrect: modal.isCorrect } });
   };
 
   return {

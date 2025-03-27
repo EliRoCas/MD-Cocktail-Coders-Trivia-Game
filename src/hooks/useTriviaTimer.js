@@ -26,7 +26,7 @@ const UseTriviaTimer = (initialTime = 15, delayStart = 1000) => {
       setCountdown((prev) => {
         if (prev <= 1) {
           clearInterval(intervalRef.current);
-          navigate("/ruleta", { state: { isCorrect: false } });
+          navigate("/roulette", { state: { isCorrect: false } });
           return 0;
         }
         return prev - 1;

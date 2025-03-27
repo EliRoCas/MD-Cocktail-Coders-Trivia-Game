@@ -5,17 +5,19 @@ const reward = [
   "Skip the Next Round",
   "Order a Special Cocktail",
   "Make a Silly Rule (Until Changed)",
+  "Shot Without Hands",
   "Immunity for 2 Rounds",
 ];
 
 const penalty = [
   "Double Shot",
   "Triple Shot",
-  "Mystery Shot (Someone Else Prepares It)",
-  "Sing a Part of a Song",
-  "Make a Ridiculous Toast and Drink",
-  "Imitate Another Player Until Your Next Turn",
-  "Ugly Selfie in the Group Chat",
+  "Mystery Shot",
+  "Sing a Song",
+  "Silly Toast and Drink",
+  "Imitate Another Player",
+  "Ugly Selfie ",
+  "Finish Your Drink",
 ];
 
 export default { reward, penalty };

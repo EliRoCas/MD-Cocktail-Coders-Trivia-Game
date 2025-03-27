@@ -33,7 +33,7 @@ const Trivia = () => {
 
   const handleModalClose = () => {
     toggleModal();
-    navigate("/ruleta", { state: { isCorrect } });
+    navigate("/roulette", { state: { isCorrect } });
   };
 
   return (

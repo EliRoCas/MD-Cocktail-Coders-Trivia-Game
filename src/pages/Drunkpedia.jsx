@@ -88,7 +88,7 @@ const Drunkpedia = () => {
           <div
             className="cocktail-item"
             key={cocktail.idDrink}
-            data-category={cocktail.strCategory} // For lazy loading
+            data-category={cocktail.strCategory} 
           >
             <img
               src={cocktail.strDrinkThumb}

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import categories from "../data/categories";
 import incorrectNamesList from "../data/incorrectNames";
 import Modal from "../components/modals/Modal";
@@ -8,12 +9,13 @@ import useTriviaModal from "../hooks/useTriviaModal";
 import "./trivia.scss";
 
 const Trivia = () => {
+  const navigate = useNavigate();
   const { countdown } = useTriviaTimer();
   const { cocktailDetails, loading, incorrectName, buttonOrder } = useTriviaCocktails(
     categories,
     incorrectNamesList
   );
-  const { modalOpen, modalTitle, modalMessage, showResult, toggleModal } =
+  const { modalOpen, modalTitle, modalMessage, showResult, toggleModal, isCorrect } =
     useTriviaModal();
 
   if (loading !== "succeeded" || !cocktailDetails) {
@@ -27,6 +29,11 @@ const Trivia = () => {
 
   const handleAnswer = (isCorrect) => {
     showResult(isCorrect);
+  };
+
+  const handleModalClose = () => {
+    toggleModal();
+    navigate("/ruleta", { state: { isCorrect } });
   };
 
   return (
@@ -81,7 +88,7 @@ const Trivia = () => {
       >
         <p>{modalMessage}</p>
         <button
-          onClick={toggleModal}
+          onClick={handleModalClose}
           className="modalButton"
         >
           Continue

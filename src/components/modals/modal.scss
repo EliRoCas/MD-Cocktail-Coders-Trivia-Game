@@ -38,7 +38,6 @@ body.active-modal {
 
 .modal-content img {
   width: 100%;
-  // max-height: 200px;
   object-fit: cover;
   border-radius: 5px;
   margin-bottom: 15px;
@@ -47,6 +46,18 @@ body.active-modal {
 .modal-content h2 {
   margin-top: 0;
   margin-right: 50px;
+}
+
+.modal.success .modalContent {
+  background-color: #141414;
+  color: #fff;
+  border: 1px solid #155724;
+}
+
+.modal.error .modalContent {
+  background-color: #070707;
+  border: #721c24;
+  color: #fff;
 }
 
 .close-modal {

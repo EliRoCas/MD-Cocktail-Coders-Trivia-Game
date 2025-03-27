@@ -18,6 +18,10 @@ const UseTriviaTimer = (initialTime = 15) => {
       navigate("/ruleta", { state: { isCorrect: false } });
     }
   }, [countdown, navigate]);
+
+  return {
+    countdown,
+  };
 };
 
 export default UseTriviaTimer;

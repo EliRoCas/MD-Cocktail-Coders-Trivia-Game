@@ -1,67 +1,27 @@
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import categories from "../data/categories";
 import incorrectNamesList from "../data/incorrectNames";
 import Modal from "../components/modals/Modal";
 import useTriviaTimer from "../hooks/useTriviaTimer";
 import useTriviaCocktails from "../hooks/useTriviaCocktails";
-import useTriviaAnswers from "../hooks/useTriviaAnswers";
 import useTriviaModal from "../hooks/useTriviaModal";
 
 import "./trivia.scss";
 
 const Trivia = () => {
   const { countdown } = useTriviaTimer();
-  const { fetchRandomCategory, fetchRandomCocktailDetails } =
-    useTriviaCocktails(categories, dispatch);
-  const { incorrectName, buttonOrder, setupAnswers } =
-    useTriviaAnswers(incorrectNamesList);
-  const { modalOpen, modalTitle, modalMessage, showResult, toggleModal } =
-    useTriviaModal();
-
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedCocktailId, setSelectedCocktailId] = useState(null);
-  const dispatch = useDispatch();
-  const { cocktails, cocktailDetails, loading } = useSelector(
-    (state) => state.cocktail
+  const { cocktailDetails, loading, incorrectName, buttonOrder } = useTriviaCocktails(
+    categories,
+    incorrectNamesList
   );
-
-  useEffect(() => {
-    const randomCat = fetchRandomCategory();
-    setSelectedCategory(randomCat);
-  }, [fetchRandomCategory]);
-
-  useEffect(() => {
-    if (cocktails && cocktails[selectedCategory] && !selectedCocktailId) {
-      const cocktailId = fetchRandomCocktailDetails(
-        cocktails[selectedCategory]
-      );
-      setSelectedCocktailId(cocktailId);
-    }
-  }, [
-    cocktails,
-    selectedCategory,
-    selectedCocktailId,
-    fetchRandomCocktailDetails,
-  ]);
-
-  useEffect(() => {
-    if (cocktailDetails) {
-      setupAnswers(cocktailDetails.strDrink);
-    }
-  }, [cocktailDetails, setupAnswers]);
+  const { modalOpen, modalTitle, modalMessage, showResult, toggleModal } = useTriviaModal();
 
   if (loading !== "succeeded" || !cocktailDetails) {
     return <p>Loading...</p>;
   }
 
-  const ingredients = [];
-  for (let i = 1; i <= 15; i++) {
-    const ingredient = cocktailDetails[`strIngredient${i}`];
-    if (ingredient) {
-      ingredients.push(ingredient);
-    }
-  }
+  const ingredients = Array.from({ length: 15 }, (_, i) => cocktailDetails[`strIngredient${i}`]).filter(
+    (x) => !!x
+  );
 
   return (
     <div className="triviaContainer">
@@ -87,7 +47,10 @@ const Trivia = () => {
           <p className="hintsTitle">Ingredients:</p>
           <ul className="ingredientsList">
             {ingredients.map((ingredient, index) => (
-              <li className="ingredients" key={index}>
+              <li
+                className="ingredients"
+                key={index}
+              >
                 {ingredient}
               </li>
             ))}
@@ -105,7 +68,11 @@ const Trivia = () => {
           ))}
         </div>
       </section>
-      <Modal isOpen={modalOpen} toggleModal={toggleModal} title={modalTitle}>
+      <Modal
+        isOpen={modalOpen}
+        toggleModal={toggleModal}
+        title={modalTitle}
+      >
         <p>{modalMessage}</p>
       </Modal>
     </div>
@@ -113,4 +80,3 @@ const Trivia = () => {
 };
 
 export default Trivia;
-

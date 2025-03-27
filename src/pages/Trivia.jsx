@@ -13,15 +13,21 @@ const Trivia = () => {
     categories,
     incorrectNamesList
   );
-  const { modalOpen, modalTitle, modalMessage, showResult, toggleModal } = useTriviaModal();
+  const { modalOpen, modalTitle, modalMessage, showResult, toggleModal } =
+    useTriviaModal();
 
   if (loading !== "succeeded" || !cocktailDetails) {
     return <p>Loading...</p>;
   }
 
-  const ingredients = Array.from({ length: 15 }, (_, i) => cocktailDetails[`strIngredient${i}`]).filter(
-    (x) => !!x
-  );
+  const ingredients = Array.from(
+    { length: 15 },
+    (_, i) => cocktailDetails[`strIngredient${i}`]
+  ).filter((x) => !!x);
+
+  const handleAnswer = (isCorrect) => {
+    showResult(isCorrect);
+  };
 
   return (
     <div className="triviaContainer">
@@ -60,7 +66,7 @@ const Trivia = () => {
           {buttonOrder.map((order, index) => (
             <button
               key={index}
-              onClick={() => showResult(order === "correct")}
+              onClick={() => handleAnswer(order === "correct")}
               className="triviaButton"
             >
               {order === "correct" ? cocktailDetails.strDrink : incorrectName}
@@ -74,6 +80,12 @@ const Trivia = () => {
         title={modalTitle}
       >
         <p>{modalMessage}</p>
+        <button
+          onClick={toggleModal}
+          className="modalButton"
+        >
+          Continue
+        </button>
       </Modal>
     </div>
   );

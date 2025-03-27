@@ -1,33 +1,61 @@
-import { useState } from "react";
+// import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+
+// const UseTriviaModal = () => {
+//   const [modalOpen, setModalOpen] = useState(false);
+//   const [modalMessage, setModalMessage] = useState("");
+//   const [modalTitle, setModalTitle] = useState("");
+
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const UseTriviaModal = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalMessage, setModalMessage] = useState("");
-  const [modalTitle, setModalTitle] = useState("");
+  const [modal, setModal] = useState({
+    open: false,
+    title: "",
+    message: "",
+  });
 
   const navigate = useNavigate();
+  const timeoutRef = useRef();
+
+  const results = {
+    true: {
+      title: "Great",
+      message: "You're a certified cocktail genius!",
+    },
+    false: {
+      title: "Sorry!",
+      message: "You need more happy hours!",
+    },
+  };
 
   const showResult = (isCorrect) => {
-    if (isCorrect) {
-      setModalTitle("Great");
-      setModalMessage("You're a certified cocktail genius!");
-    } else {
-      setModalTitle("Sorry!");
-      setModalMessage("You need more happy hours!");
-    }
-    setModalOpen(true);
-
-    setTimeout(() => {
+    setModal({ ...results[isCorrect], open: true });
+    timeoutRef.current = setTimeout(() => {
       navigate("/ruleta", { state: { isCorrect } });
     }, 2000);
   };
 
   const toggleModal = () => {
-    setModalOpen(false);
+    setModal((prev) => ({ ...prev, open: false }));
+    clearTimeout(timeoutRef.current);
   };
 
-  return { modalOpen, modalMessage, modalTitle, showResult, toggleModal };
+  useEffect(() => {
+    return () => {
+      clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  return {
+    modalOpen: modal.open,
+    modalTitle: modal.title,
+    modalMessage: modal.message,
+    showResult,
+    toggleModal,
+    isCorrect: modal.isCorrect,
+  };
 };
 
 export default UseTriviaModal;

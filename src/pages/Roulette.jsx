@@ -31,13 +31,13 @@ function Roulette() {
         Math.floor(normalizedRotation / segmentAngle) % options.length;
       setSelectedOption(options[selectedSegment]);
       setIsSpinning(false);
-      setIsModalOpen(true); // Open the modal after the spin
+      setIsModalOpen(true);
     }, 3000);
   };
 
   const toggleModal = () => {
     setIsModalOpen(false);
-    navigate("/trivia"); // Navigate to the trivia page when the modal closes
+    navigate("/trivia");
   };
 
   return (
@@ -63,9 +63,16 @@ function Roulette() {
           {isSpinning ? "Spinning..." : "Spin"}
         </button>
       </div>
-      <Modal isOpen={isModalOpen} toggleModal={toggleModal} title="Result">
+      <Modal
+        isOpen={isModalOpen}
+        toggleModal={toggleModal}
+        title="The Veredict..."
+      >
         <p>¡{selectedOption}!</p>
-        <button onClick={toggleModal} className="modalButton">
+        <button
+          onClick={toggleModal}
+          className="modalBtn"
+        >
           Close
         </button>
       </Modal>

@@ -1,13 +1,16 @@
-@use "../styles/mixins.scss" as *;
+@use "../styles/_mixins.scss" as *;
 @use "sass:math";
 
 .ruleta-container {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 5px;
   margin-top: 5px;
+  height: 100%;
+  overflow: hidden;
 }
 
 .ruleta {
@@ -104,13 +107,8 @@
 }
 
 .seg-7 {
-  background: linear-gradient(
-    to top,
-    rgba(243, 63, 251, 1) 0%,
-    rgb(248, 89, 15) 100%
-  );
+  background: linear-gradient(to top, rgba(243, 63, 251, 1) 0%, rgb(248, 89, 15) 100%);
 }
-
 
 .pointer {
   position: absolute;
@@ -142,12 +140,6 @@
   }
 }
 
-.result {
-  margin-top: 10px;
-  font-size: 1.8rem;
-  color: #fd732e;
-}
-
 .ruletaBtn {
   display: flex;
   justify-content: center;
@@ -155,14 +147,63 @@
   margin-top: 20px;
 }
 
+.modalBtn { 
+  
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-top: 20px;
+  
+    &:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+}
 @include mobile {
   .ruleta {
-    width: 90vw;
-    height: 90vw;
+    width: 85vw;
+    height: 85vw;
   }
 
   .ruleta-segment::after {
     font-size: 0.6rem;
+  }
+
+  .spin-button,
+  .next-turn-button {
+    font-size: 1.5rem;
+    padding: 8px 16px;
+  }
+
+  .result {
+    font-size: 1.3rem;
+  }
+
+  .ruletaBtn {
+    flex-direction: row;
+  }
+}
+
+@include mobile-landscape {
+  .ruleta-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1px;
+  }
+  .ruleta {
+    width: 29%;
+    height: 95%;
+    border: 3px;
+  }
+
+  .ruleta-segment::after {
+    font-size: 0.5em;
+    top: 45%;
   }
 
   .spin-button,

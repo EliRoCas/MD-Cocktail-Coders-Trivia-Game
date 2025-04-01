@@ -6,11 +6,17 @@ const Modal = ({ isOpen, toggleModal, title, children }) => {
     <>
       {isOpen && (
         <div className="modal">
-          <div onClick={toggleModal} className="overlay"></div>
+          <div
+            onClick={toggleModal}
+            className="overlay"
+          ></div>
           <div className="modal-content">
             <h2>{title}</h2>
-            {children}
-            <button className="close-modal" onClick={toggleModal}>
+            <div className="modal-children">{children}</div>
+            <button
+              className="close-modal"
+              onClick={toggleModal}
+            >
               X
             </button>
           </div>

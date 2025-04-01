@@ -1,40 +1,40 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import "../styles/home.css";
+import "./home.scss";
 
 const Home = () => {
-  const [showRules, setShowRules] = useState(false); // Estado para controlar la visibilidad de las reglas
+  const [showRules, setShowRules] = useState(false);
   const navigate = useNavigate();
 
-  // Función para mostrar/ocultar las reglas del juego
   const handleToggleRules = () => {
-    setShowRules((prevShowRules) => !prevShowRules); // Cambia el estado para mostrar u ocultar
+    setShowRules((prevShowRules) => !prevShowRules);
+  };
+
+  const handleNavigate = () => {
+    navigate("/trivia");
   };
 
   return (
     <div className="homeContainer">
       <div className="homeData">
-        <h1>Bienvenido </h1>
-        <button onClick={() => navigate("/trivia")}>Game Start</button>
+        <h1>Welcome </h1>
+        <button onClick={handleNavigate}>Game Start</button>
         <button onClick={handleToggleRules}>
-          {showRules ? "Ocultar Reglas" : "Reglas del juego"}
+          {showRules ? "Hide Rules" : "View Game Rules"}
         </button>
       </div>
 
       {showRules && (
         <div className="rules">
-          <h2>Reglas del Juego</h2>
+          <h2>Game Rules</h2>
           <ul>
-            <li>Regla 1: Cada jugador debe tener su bebida lista.</li>
-            <li>Regla 2: El jugador debe adivinar el cóctel.</li>
-            <li>
-              Regla 3: El jugador deberá girar la ruleta de premios y castigos.
-            </li>
-            <li>Regla 4: El jugador deberá hacer lo que la ruleta indica.</li>
-
-            <li>Repite el proceso hasta que todo el mundo esté satisfecho.</li>
-            <li>¡Diviértete y bebe con responsabilidad!</li>
+            <li>Rule 1: Each player must have their drink ready.</li>
+            <li>Rule 2: The player must guess the cocktail.</li>
+            <li>Rule 3: The player must spin the wheel of rewards and punishments.</li>
+            <li>Rule 4: The player must do what the wheel indicates.</li>
+            <li>Repeat the process until everyone is satisfied.</li>
+            <li>Have fun and drink responsibly!</li>
           </ul>
         </div>
       )}

@@ -1,0 +1,89 @@
+@use "../styles/color.scss" as *;
+@use "../styles/mixins.scss" as *;
+
+.homeContainer {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 90%;
+  height: 90%;
+  margin: 1rem auto 0 auto;
+  background-image: url(../assets/cocktaildb-Home.jpeg);
+  background-size: cover;
+  background-position: center;
+  font-family: "Odibee Sans", sans-serif;
+  font-size: 30px;
+}
+
+.homeData,
+.rules {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  color: rgb(5, 5, 5);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 20px;
+  font-family: "Odibee Sans", sans-serif;
+  font-size: 30px;
+
+  &:first-of-type {
+    background-color: $color-primary-500;
+
+    &:hover {
+      background-color: $color-primary-400;
+    }
+  }
+
+  &:last-of-type {
+    background-color: $color-accent-500;
+
+    &:hover {
+      background-color: $color-accent-400;
+    }
+  }
+
+  &:disabled {
+    background-color: $color-contrast-800;
+    cursor: not-allowed;
+  }
+}
+
+@include mobile {
+  .homeContainer {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .homeData,
+  .rules {
+    padding: 10px;
+    font-size: 20px;
+  }
+
+  button {
+    padding: 8px 16px;
+    font-size: 20px;
+    margin: 10px;
+  }
+}
+
+@include mobile-landscape {
+  .homeContainer {
+    justify-content: flex-start;
+    padding: 0.5rem;
+  }
+  .rules {
+    margin-top: 1rem;
+  }
+}

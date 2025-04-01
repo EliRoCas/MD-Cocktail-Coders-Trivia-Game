@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
 import Home from "./pages/Home";
 import Trivia from "./pages/Trivia";
@@ -10,10 +10,10 @@ import NotFound from "./pages/NotFound";
 
 function App() {
   return (
-    <Router basename="">
+    <Router>
       <MainLayout>
         <Routes>
-          <Route path="" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/trivia" element={<Trivia />} />
           <Route path="/drunkpedia" element={<Drunkpedia />} />
 

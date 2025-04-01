@@ -1,5 +1,5 @@
 {
-    "version": "1.0.1",
+    "version": "1.0.2",
     "name": "shots",
     "app-name": "Shots",
     "package-name": "webview",
@@ -22,6 +22,9 @@
     },
     "project-name": "Shots",
     "theme": {
-        "fullScreen": true
+        "fullScreen": true,
+        "webView": {
+            "data-main": "index.html"
+        }
     }
 }

@@ -63,10 +63,16 @@
     .notfound-container {
         flex-direction: column;
         text-align: center;
+        max-width: 100%;
+        min-height: 80%;
+
+    .text-notFound h1 {
+      font-size: 3.5rem;
+    }
 
         .text-notFound, .img-notfound {
             flex: none;
-            width: 100%;
+            width: 70%;
         }
     }
 }

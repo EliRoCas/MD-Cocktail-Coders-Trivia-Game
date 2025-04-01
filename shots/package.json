@@ -1,10 +1,10 @@
 {
-    "version": "1.0.1",
+    "version": "1.0.0",
     "name": "shots",
-    "app-name": "Shots",
+    "app-name": "shots",
     "package-name": "webview",
     "project-type": "webview",
-    "icon": "./assets/icon/owl.png",
+    "icon": "./assets/icon/icon.png",
     "dist-path": "./dist",
     "permission": [
         "android.permission.INTERNET"
@@ -15,12 +15,12 @@
         "start:dev": "node .",
         "build": "androidjs build"
     },
-    "author": "Drunken Deverlopers",
+    "author": "",
     "license": "ISC",
     "dependencies": {
         "androidjs": "^2.0.2"
     },
-    "project-name": "Shots",
+    "project-name": "shots",
     "theme": {
         "fullScreen": true
     }

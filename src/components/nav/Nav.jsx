@@ -14,7 +14,7 @@ const Nav = ({ className }) => {
           <li>
             <Link to="/" className="navLink">
               <GiGlassCelebration className="navImg" />
-              <span className="navText">Inicio</span>
+              <span className="navText">Home</span>
             </Link>
           </li>
           <li>

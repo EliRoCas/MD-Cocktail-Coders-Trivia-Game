@@ -10,10 +10,10 @@ import NotFound from "./pages/NotFound";
 
 function App() {
   return (
-    <Router>
+    <Router basename="">
       <MainLayout>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="" element={<Home />} />
           <Route path="/trivia" element={<Trivia />} />
           <Route path="/drunkpedia" element={<Drunkpedia />} />
 

@@ -68,7 +68,7 @@ function Roulette() {
         toggleModal={toggleModal}
         title="The Veredict..."
       >
-        <p>¡{selectedOption}!</p>
+        <p>{selectedOption}!</p>
         <button
           onClick={toggleModal}
           className="modalBtn"

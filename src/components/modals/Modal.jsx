@@ -1,28 +1,29 @@
 import PropTypes from "prop-types";
 import "./modal.scss";
+import Overlay from "../Overlay";
 
 const Modal = ({ isOpen, toggleModal, title, children }) => {
   return (
-    <>
-      {isOpen && (
-        <div className="modal">
-          <div
+    <Overlay
+      isOpen={isOpen}
+      closeModal={toggleModal}
+    >
+      <div
+        className="modal-content"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="modal-header">
+          <h2>{title}</h2>
+          <button
+            className="close-modal"
             onClick={toggleModal}
-            className="overlay"
-          ></div>
-          <div className="modal-content">
-            <h2>{title}</h2>
-            <div className="modal-children">{children}</div>
-            <button
-              className="close-modal"
-              onClick={toggleModal}
-            >
-              X
-            </button>
-          </div>
+          >
+            X
+          </button>
         </div>
-      )}
-    </>
+        <div className="modal-children">{children}</div>
+      </div>
+    </Overlay>
   );
 };
 

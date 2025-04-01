@@ -1,5 +1,6 @@
 $mobile-breakpoint: 768px;
-
+$mobile-landscape-breakpoint: 640px;
+$tablet-breakpoint: 1024px;
 
 @mixin mobile {
   @media (max-width: $mobile-breakpoint) {
@@ -7,3 +8,16 @@ $mobile-breakpoint: 768px;
   }
 }
 
+@mixin mobile-landscape {
+  @media (max-height: $mobile-landscape-breakpoint) and (orientation: landscape),
+    (max-width: $mobile-breakpoint) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin tablet-landscape {
+  @media (min-width: #{$mobile-breakpoint}) and (max-width: #{$tablet-breakpoint}) 
+         and (orientation: landscape) {
+    @content;
+  }
+}

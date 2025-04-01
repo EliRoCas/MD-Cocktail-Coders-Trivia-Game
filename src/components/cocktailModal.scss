@@ -1,20 +1,38 @@
+@use "../styles/color.scss" as *;
+@use "../styles/_mixins.scss" as *;
+
 .cocktail-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   .modal-title {
     font-size: 1.5rem;
     margin-bottom: 1rem;
   }
 
-  ul {
-    list-style: none;
+  .modal-ingredients {
+    display: grid;
+    justify-items: center;
+    width: 100%;
     padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 1.5em;
+    color: $color-primary-300;
+
+    &.multiple-columns {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   li {
-    margin-bottom: 0.5rem;
+    margin: 0;
+    padding: 0;
   }
 
-  p {
+  .modal-info {
     margin-top: 1rem;
+    color: $color-primary-200;
   }
 
   img {
@@ -24,4 +42,21 @@
     border-radius: 5px;
     margin-bottom: 15px;
   }
+}
+
+@include mobile {
+  .cocktail-modal {
+    img {
+      width: 90%;
+    }
+  }
+
+  .modal-ingredients {
+    font-size: 1.2em;
+    &.multiple-columns {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  
 }

@@ -5,8 +5,16 @@ import "./cocktailModal.scss";
 const CocktailModal = ({ isOpen, toggleModal, cocktail }) => {
   if (!cocktail) return null;
 
+  const ingredients = Object.keys(cocktail)
+    .filter((key) => key.startsWith("strIngredient") && cocktail[key])
+    .map((key) => cocktail[key]);
+
   return (
-    <Modal isOpen={isOpen} toggleModal={toggleModal} title={cocktail.strDrink}>
+    <Modal
+      isOpen={isOpen}
+      toggleModal={toggleModal}
+      title={cocktail.strDrink}
+    >
       <img
         src={cocktail.strDrinkThumb}
         alt={cocktail.strDrink}
@@ -14,15 +22,17 @@ const CocktailModal = ({ isOpen, toggleModal, cocktail }) => {
       />
       <div className="cocktail-modal">
         <h3 className="modal-title">Ingredients</h3>
-        <ul>
-          {Object.keys(cocktail)
-            .filter((key) => key.startsWith("strIngredient") && cocktail[key])
-            .map((key) => (
-              <li key={key}>{cocktail[key]}</li>
-            ))}
+        <ul
+          className={`modal-ingredients ${
+            ingredients.length > 3 ? "multiple-columns" : ""
+          }`}
+        >
+          {ingredients.map((ingredient, index) => (
+            <li key={index}>{ingredient}</li>
+          ))}
         </ul>
         <h3 className="modal-title">Instructions</h3>
-        <p>{cocktail.strInstructions}</p>
+        <p className="modal-info">{cocktail.strInstructions}</p>
       </div>
     </Modal>
   );

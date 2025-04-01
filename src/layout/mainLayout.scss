@@ -1,11 +1,25 @@
+@use "../styles/mixins.scss" as *;
+
 .layout {
+  box-sizing: border-box;
   display: grid;
-  min-height: 100dvh;
+  height: 100vh;
   grid-template-rows: auto 1fr auto;
 }
 
 main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  overflow: auto;
+  min-height: 0;
+}
+
+@include mobile-landscape {
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+  }
 }

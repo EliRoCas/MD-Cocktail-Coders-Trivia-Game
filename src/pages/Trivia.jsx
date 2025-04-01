@@ -40,7 +40,7 @@ const Trivia = () => {
     <div className="triviaContainer">
       <h2>1-2-3... ¡Shot!</h2>
       <section className="gameCard">
-        <div className="timerImgContainer">
+        <div className="timerContainer">
           <div className="timerBarContainer">
             <div
               className="timerBar"
@@ -59,7 +59,7 @@ const Trivia = () => {
           <span className="hintsData"> {cocktailDetails.strCategory}</span>
           <p className="hintsTitle">Ingredients:</p>
           <ul className="ingredientsList">
-            {ingredients.map((ingredient, index) => (
+            {ingredients.slice(0, 8).map((ingredient, index) => (
               <li
                 className="ingredients"
                 key={index}
